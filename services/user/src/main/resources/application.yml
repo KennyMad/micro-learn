@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: User Service
+  data:
+    mongodb:
+      database: user
+      port: 27017
+      username: admin
+      password: admin
+      host: localhost
+      authentication-database: admin
+server:
+  port: 8030

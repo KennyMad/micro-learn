@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: Storage Service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/storage
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: postgresql
+
+server:
+  port: 8020
