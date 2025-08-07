@@ -1,6 +1,6 @@
 spring:
   application:
-    name: User Service
+    name: user-service
   data:
     mongodb:
       database: user
@@ -11,3 +11,8 @@ spring:
       authentication-database: admin
 server:
   port: 8030
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

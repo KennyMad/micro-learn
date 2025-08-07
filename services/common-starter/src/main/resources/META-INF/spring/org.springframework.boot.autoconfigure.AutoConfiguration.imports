@@ -1,2 +1,3 @@
 com.pet.common.TestUserAutoConfiguration
 com.pet.common.GlobalExceptionHandler
+com.pet.common.CustomKafkaConfigurationProperties

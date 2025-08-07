@@ -7,6 +7,7 @@ D:\Idea Projects\micro-learn\services\common-starter\src\main\java\com\pet\commo
 D:\Idea Projects\micro-learn\services\common-starter\src\main\java\com\pet\common\client\SynchronizeItemsRequest.java
 D:\Idea Projects\micro-learn\services\common-starter\src\main\java\com\pet\common\client\UpdateOrderStatus.java
 D:\Idea Projects\micro-learn\services\common-starter\src\main\java\com\pet\common\client\UserClient.java
+D:\Idea Projects\micro-learn\services\common-starter\src\main\java\com\pet\common\CustomKafkaConfigurationProperties.java
 D:\Idea Projects\micro-learn\services\common-starter\src\main\java\com\pet\common\dto\kafka\DeliveryUpdated.java
 D:\Idea Projects\micro-learn\services\common-starter\src\main\java\com\pet\common\dto\kafka\OrderToDelivery.java
 D:\Idea Projects\micro-learn\services\common-starter\src\main\java\com\pet\common\dto\kafka\OrderUpdated.java

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: Storage Service
+    name: storage-service
   datasource:
     url: jdbc:postgresql://localhost:5432/storage
     username: admin
@@ -13,3 +13,8 @@ spring:
 
 server:
   port: 8020
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

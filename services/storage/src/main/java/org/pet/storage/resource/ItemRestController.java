@@ -1,7 +1,9 @@
 package org.pet.storage.resource;
 
+import brave.Tracer;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.pet.storage.dto.CreateItemCategoryRequest;
 import org.pet.storage.dto.CreateItemRequest;
 import org.pet.storage.dto.SynchronizeItemsRequest;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/item")
 @RequiredArgsConstructor
@@ -21,6 +24,8 @@ public class ItemRestController {
 
     private final ItemService itemService;
     private final ItemCategoryService itemCategoryService;
+
+    private final Tracer tracer;
 
     @PostMapping("/category")
     public ResponseEntity<?> createItemCategory(@RequestBody @Valid CreateItemCategoryRequest request) {
@@ -34,6 +39,7 @@ public class ItemRestController {
 
     @PostMapping("/synchronize")
     public ResponseEntity<?> synchronizeItems(@RequestBody @Valid SynchronizeItemsRequest request) {
+        log.info("Trace id: {}", tracer.currentSpan().context().traceIdString());
         ValidationResult result = itemService.synchronizeItems(request);
         return result.isValid()
                 ? ResponseEntity.ok().build()

@@ -1,6 +1,11 @@
 spring:
   application:
-    name: Notification service
+    name: notification-service
 
 server:
   port: 8070
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

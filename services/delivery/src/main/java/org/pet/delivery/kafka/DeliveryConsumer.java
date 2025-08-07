@@ -2,7 +2,6 @@ package org.pet.delivery.kafka;
 
 import com.pet.common.dto.kafka.OrderToDelivery;
 import lombok.RequiredArgsConstructor;
-import org.pet.delivery.repository.DeliveryRepository;
 import org.pet.delivery.service.DeliveryService;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;

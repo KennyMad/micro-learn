@@ -1,9 +1,11 @@
 package org.pet.order.service;
 
+import brave.Tracer;
 import com.pet.common.client.*;
 import com.pet.common.dto.kafka.OrderToDelivery;
 import com.pet.common.exception.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.pet.order.dto.request.CreateOrderRequest;
 import org.pet.order.dto.response.OrderResponse;
 import org.pet.order.dto.response.PageResponse;
@@ -29,6 +31,7 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class OrderService {
@@ -41,6 +44,8 @@ public class OrderService {
     private final PaymentClient paymentClient;
     private final OrderDeliveryProducer orderDeliveryProducer;
     private final AnalyticsProducer analyticsProducer;
+
+    private final Tracer tracer;
 
     public long createOrder(CreateOrderRequest orderRequest) {
         Order order = orderMapper.toEntity(orderRequest);
@@ -103,6 +108,7 @@ public class OrderService {
     }
 
     private void validateItemsAvailability(List<OrderItem> items) {
+        log.info("Trace id: {}", tracer.currentSpan().context().traceIdString());
         storageClient.synchronizeItems(new SynchronizeItemsRequest(items.stream().map(item -> new SynchronizeItem(item.getItemId(), item.getPrice(), item.getAmount())).toList()));
     }
 

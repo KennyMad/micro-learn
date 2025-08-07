@@ -1,6 +1,6 @@
 spring:
   application:
-    name: Delivery Service
+    name: delivery-service
   datasource:
     url: jdbc:postgresql://localhost:5432/delivery
     username: admin
@@ -27,3 +27,8 @@ spring:
 
 server:
   port: 8040
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

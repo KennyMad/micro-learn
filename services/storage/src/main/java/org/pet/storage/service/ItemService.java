@@ -1,7 +1,9 @@
 package org.pet.storage.service;
 
+import brave.Tracer;
 import com.pet.common.dto.response.ErrorResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.pet.storage.dto.CreateItemRequest;
 import org.pet.storage.dto.SynchronizeItem;
 import org.pet.storage.dto.SynchronizeItemsRequest;
@@ -16,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class ItemService {
